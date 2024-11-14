@@ -26,3 +26,11 @@ email["From"] = email_sender
 
 #Setting who are going to recieve the message
 email["To"] = email_reciever
+
+email['Subject'] = subject
+
+email.set_content(compose)
+
+#this is useful to send in a secure way the email
+context = ssl.create_default_context()
+
