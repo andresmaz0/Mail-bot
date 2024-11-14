@@ -34,3 +34,8 @@ email.set_content(compose)
 #this is useful to send in a secure way the email
 context = ssl.create_default_context()
 
+#that method allow to send a secured email through a server
+#1.- the server that will be useful to send the email
+#2.- the server port
+#3.- A secured context
+with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=compose) as smtp
