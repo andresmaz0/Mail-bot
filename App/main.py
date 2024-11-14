@@ -17,3 +17,12 @@ subject = "Notification of Amazon"
 compose = """
 Congrats you a special discount in an Iphone 15 just follow the link below...
 """
+
+#Creating a copy of EmailMessage
+email = EmailMessage()
+
+#Setting who are going to send the message
+email["From"] = email_sender
+
+#Setting who are going to recieve the message
+email["To"] = email_reciever
