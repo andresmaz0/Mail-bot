@@ -38,4 +38,7 @@ context = ssl.create_default_context()
 #1.- the server that will be useful to send the email
 #2.- the server port
 #3.- A secured context
-with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=compose) as smtp
+with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=compose) as smtp    #login in the sender account
+    smtp.login(email_sender, email_sender_password) 
+
+    smtp.sendmail(email_sender,email_reciever, email.as_string())
