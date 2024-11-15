@@ -14,6 +14,8 @@ subject = "Notification of Amazon"
 
 compose = """
 Congrats you a special discount in an Iphone 15 just follow the link below...
+
+https://Iphonediscount.amazon.com
 """
 
 def send_email(message, subject, reciever):
@@ -45,3 +47,5 @@ def send_email(message, subject, reciever):
         smtp.login(email_sender, email_sender_password) 
 
         smtp.sendmail(email_sender,reciever, email.as_string())
+
+send_email(compose, subject, email_reciever)
