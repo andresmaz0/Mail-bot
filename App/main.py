@@ -18,6 +18,9 @@ Congrats you a special discount in an Iphone 15 just follow the link below...
 https://Iphonediscount.amazon.com
 """
 
+def reply_email(message):
+    pass
+
 def send_email(message, subject, reciever):
     email_sender = "mailbotamazon@gmail.com"
     email_sender_password = "mjwalajvxpooybre"
