@@ -4,6 +4,10 @@
 from email.message import EmailMessage
 #↑ that librari help to shape the messages sended by email.
 
+#will help to decoded the message which comes in bytes
+#will help to decoded the header of the email
+from email.header import decode_header
+
 import ssl #<- ssl let create a secure connection to send the emails.
 
 import smtplib #<- will help to send emails by the protocol SMTP
@@ -23,6 +27,7 @@ Congrats you a special discount in an Iphone 15 just follow the link below...
 
 https://Iphonediscount.amazon.com
 """
+
 #That function use IMAP protocol
 def reply_email(message):
     pass
