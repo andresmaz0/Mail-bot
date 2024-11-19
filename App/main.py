@@ -19,7 +19,7 @@ Congrats you a special discount in an Iphone 15 just follow the link below...
 
 https://Iphonediscount.amazon.com
 """
-
+#That function use IMAP protocol
 def reply_email(message):
     pass
 
