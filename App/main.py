@@ -8,7 +8,7 @@ import ssl #<- ssl let create a secure connection to send the emails.
 
 import smtplib #<- will help to send emails by the protocol SMTP
 
-import imaplib #<- will help to send emails by the protocol IMAP
+import imaplib #<- will help to reply emails by the protocol IMAP
 
 email_reciever = ["andres2410020@hybridge.education","prueba1@yopmail.com","prueba2@yopmail.com"]
 
