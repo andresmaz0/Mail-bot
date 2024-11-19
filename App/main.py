@@ -5,6 +5,8 @@ from email.message import EmailMessage
 #↑ that librari help to shape the messages sended by email.
 
 #will help to decoded the message which comes in bytes
+import email
+
 #will help to decoded the header of the email
 from email.header import decode_header
 
@@ -30,7 +32,34 @@ https://Iphonediscount.amazon.com
 
 #That function use IMAP protocol
 def reply_email(message):
-    pass
+    imap_server = "imap.gmail.com" # server url
+    imap_port = 993 # server port
+
+    # Creating a secure connection to our server of IMAP
+    imap_connection = imaplib.IMAP4_SSL(imap_server, imap_port)
+
+    #Login with user and password
+    imap_connection.login(email_sender,email_sender_password)
+
+    #Selecting inbox section
+    imap_connection.select("inbox")
+
+    status, data = imap_connection.search(None, "UNSEEN")
+
+    #spliting the bytes of the data variable
+    unseen_emails = data[0].split()
+
+    for byte in unseen_emails:
+        status, decoded_data = imap_connection.fetch(byte, '(RFC822)')
+
+        for reply in decoded_data:
+            msg = email.message_from_bytes(reply[1])
+            subject, encoding = decode_header(msg["Subject"])[0]
+            sender = msg.get("From")
+
+            print(subject)
+            print(sender)
+
 
 def send_email(message, subject, reciever):
     #Creating a copy of EmailMessage
