@@ -4,4 +4,9 @@
   
   That app has the objetive that simulate the behavior of a mailbot of Amazon, that can send emails to multiple mailing addresses by the protocol SMTP.
   Helping by the google project section to link the email of the bot with python
+
+  Libraries:
+  - EmailMessage
+  - ssl
+  - smtplib
 </p>
