@@ -10,6 +10,10 @@ import smtplib #<- will help to send emails by the protocol SMTP
 
 import imaplib #<- will help to reply emails by the protocol IMAP
 
+email_sender = "mailbotamazon@gmail.com"
+
+email_sender_password = "mjwalajvxpooybre"
+
 email_reciever = ["andres2410020@hybridge.education","prueba1@yopmail.com","prueba2@yopmail.com"]
 
 subject = "Notification of Amazon"
@@ -24,9 +28,6 @@ def reply_email(message):
     pass
 
 def send_email(message, subject, reciever):
-    email_sender = "mailbotamazon@gmail.com"
-    email_sender_password = "mjwalajvxpooybre"
-    
     #Creating a copy of EmailMessage
     email = EmailMessage()
 
