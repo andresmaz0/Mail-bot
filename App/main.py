@@ -70,6 +70,7 @@ def send_email(message, subject, reciever):
 
     #Setting who are going to recieve the message
     email["To"] = ','.join(reciever)
+    #IMPORTANT IF YOU WANT A Bcc reciber, you have to delete email["To"] and just send email
 
     email['Subject'] = subject
 
