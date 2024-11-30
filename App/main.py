@@ -72,8 +72,9 @@ def reply_email(reply_message):
 
                 sender = msg.get("From")
 
-                # print(subject)
-                # print(sender)
+                #replying the message
+                send_email(reply_message, subject, sender)
+
 
 
 def send_email(message, subject, reciever):
