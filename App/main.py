@@ -53,12 +53,18 @@ def reply_email(message):
         status, decoded_data = imap_connection.fetch(byte, '(RFC822)')
 
         for reply in decoded_data:
-            msg = email.message_from_bytes(reply[1])
-            subject, encoding = decode_header(msg["Subject"])[0]
-            sender = msg.get("From")
+            if isinstance(reply, tuple):
+                msg = email.message_from_bytes(reply[1])
+                subject, encoding = decode_header(msg["Subject"])[0]
 
-            print(subject)
-            print(sender)
+                #It helps to know if the email has a second layer
+                if isinstance(subject, byte):
+                    subject = subject.decode(encoding or 'utf-8')
+                    
+                sender = msg.get("From")
+
+                print(subject)
+                print(sender)
 
 
 def send_email(message, subject, reciever):
