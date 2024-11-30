@@ -44,27 +44,36 @@ def reply_email(message):
     #Selecting inbox section
     imap_connection.select("inbox")
 
+    #Searching the unseen emails
     status, data = imap_connection.search(None, "UNSEEN")
 
     #spliting the bytes of the data variable
     unseen_emails = data[0].split()
 
     for byte in unseen_emails:
+        #decoding the data recieve(bytes) into list [0]->tuples and [1]-> bytes with protocol RFC822
+        #decoded_data has a in the position[0] has a tuple of message and in the potion[1] has bytes of the message
+        #'(RFC822)': Requests the entire message body in raw email format (including headers and body).
         status, decoded_data = imap_connection.fetch(byte, '(RFC822)')
 
         for reply in decoded_data:
+            """I have to filter the tuple data type because some data is no always a tuple
+            Example: (b'1 (RFC822 {1024}', b'<raw email bytes here>'), b')'
+            And if the data type is no a tuple it give me a traceback"""
             if isinstance(reply, tuple):
+                #reply[1] has the body of the message and [0] has metadata as identifiers or protocol information
                 msg = email.message_from_bytes(reply[1])
+
                 subject, encoding = decode_header(msg["Subject"])[0]
 
                 #It helps to know if the email has a second layer
                 if isinstance(subject, byte):
                     subject = subject.decode(encoding or 'utf-8')
-                    
-                sender = msg.get("From")
 
-                print(subject)
-                print(sender)
+                    sender = msg.get("From")
+
+                # print(subject)
+                # print(sender)
 
 
 def send_email(message, subject, reciever):
