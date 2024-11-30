@@ -31,7 +31,7 @@ https://Iphonediscount.amazon.com
 """
 
 #That function use IMAP protocol
-def reply_email(message):
+def reply_email(reply_message):
     imap_server = "imap.gmail.com" # server url
     imap_port = 993 # server port
 
@@ -67,10 +67,10 @@ def reply_email(message):
                 subject, encoding = decode_header(msg["Subject"])[0]
 
                 #It helps to know if the email has a second layer
-                if isinstance(subject, byte):
+                if isinstance(subject, bytes):
                     subject = subject.decode(encoding or 'utf-8')
 
-                    sender = msg.get("From")
+                sender = msg.get("From")
 
                 # print(subject)
                 # print(sender)
