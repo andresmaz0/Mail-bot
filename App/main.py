@@ -75,8 +75,6 @@ def reply_email(reply_message):
                 #replying the message
                 send_email(reply_message, subject, sender)
 
-
-
 def send_email(message, subject, reciever):
     #Creating a copy of EmailMessage
     email = EmailMessage()
@@ -105,6 +103,8 @@ def send_email(message, subject, reciever):
 
         smtp.sendmail(email_sender,reciever, email.as_string())
 
+def create_compose():
+    pass
 #send_email(compose, subject, email_reciever)
 
-reply_email("")
+#reply_email("")
