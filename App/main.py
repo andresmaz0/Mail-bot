@@ -16,6 +16,8 @@ import smtplib #<- will help to send emails by the protocol SMTP
 
 import imaplib #<- will help to reply emails by the protocol IMAP
 
+import google.generativeai as genai #<- Adding gemini AI
+
 email_sender = "mailbotamazon@gmail.com"
 
 email_sender_password = "mjwalajvxpooybre"
