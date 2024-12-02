@@ -105,8 +105,14 @@ def send_email(message, subject, reciever):
 
         smtp.sendmail(email_sender,reciever, email.as_string())
 
+#Creating a compose with Gemini AI to reply the unseen email
 def create_compose():
-    pass
+    genai.configure(api_key="AIzaSyAfOF8SJTXLUx2ppJPghm7DA6VjLH2737A")
+    model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+    response = model.generate_content("Explain how AI works")
+    print(response.text)
+
 #send_email(compose, subject, email_reciever)
 
 #reply_email("")
+create_compose()
