@@ -74,6 +74,10 @@ def reply_email(reply_message):
 
                 sender = msg.get("From")
 
+                #With that if i know if the body of the email is just text or Html
+                if msg.is_multipart():
+                    pass
+
                 #replying the message
                 send_email(reply_message, subject, sender)
 
@@ -115,4 +119,4 @@ def create_compose():
 #send_email(compose, subject, email_reciever)
 
 #reply_email("")
-create_compose()
+#create_compose()
