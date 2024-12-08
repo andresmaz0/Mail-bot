@@ -76,10 +76,12 @@ def reply_email(reply_message):
 
                 #With that if i know if the body of the email is just text or Html
                 if msg.is_multipart():
-                    pass
+                    for part_of_email in msg.walk():
+                        #With that i get the content type of my email
+                        content_type = part_of_email.get_content_type()
 
                 #replying the message
-                send_email(reply_message, subject, sender)
+                #send_email(reply_message, subject, sender)
 
 def send_email(message, subject, reciever):
     #Creating a copy of EmailMessage
@@ -110,13 +112,13 @@ def send_email(message, subject, reciever):
         smtp.sendmail(email_sender,reciever, email.as_string())
 
 #Creating a compose with Gemini AI to reply the unseen email
-def create_compose():
+def create_compose(msg):
     genai.configure(api_key="AIzaSyAfOF8SJTXLUx2ppJPghm7DA6VjLH2737A")
     model = genai.GenerativeModel(model_name="gemini-1.5-flash")
-    response = model.generate_content("Explain how AI works")
+    response = model.generate_content(msg)
     print(response.text)
 
 #send_email(compose, subject, email_reciever)
 
-#reply_email("")
+reply_email("")
 #create_compose()
