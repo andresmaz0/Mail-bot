@@ -79,6 +79,22 @@ def reply_email(reply_message):
                     for part_of_email in msg.walk():
                         #With that i get the content type of my email
                         content_type = part_of_email.get_content_type()
+                        
+                        #identifying the content_type
+                        if content_type == 'text/plain':
+                            #Getting the 'load' of the email and decoded it
+                            body = part_of_email.get_payload(decode=True).decode()
+                            print(f'the body of the email is: {body}')
+                            break
+
+                        elif content_type == 'text/html':
+                            body = part_of_email.get_payload(decode=True).decode()
+                            print(f'the body of the email in html is: {body}')
+                            break
+                else:
+                    body = part_of_email.get_payload(decode=True).decode()
+                    print(f'the body of the email in other format is: {body}')
+                    break
 
                 #replying the message
                 #send_email(reply_message, subject, sender)
