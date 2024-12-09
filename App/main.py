@@ -33,7 +33,7 @@ https://Iphonediscount.amazon.com
 """
 
 #That function use IMAP protocol
-def reply_email(reply_message):
+def reply_email():
     imap_server = "imap.gmail.com" # server url
     imap_port = 993 # server port
 
