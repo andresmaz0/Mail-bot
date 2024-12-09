@@ -132,8 +132,8 @@ def send_email(message, subject, reciever):
 def create_compose(msg):
     genai.configure(api_key="AIzaSyAfOF8SJTXLUx2ppJPghm7DA6VjLH2737A")
     model = genai.GenerativeModel(model_name="gemini-1.5-flash")
-    response = model.generate_content(msg)
-    print(response.text)
+    response = model.generate_content(f"Create an answer to the message: {msg}")
+    return response.text
 
 #send_email(compose, subject, email_reciever)
 
