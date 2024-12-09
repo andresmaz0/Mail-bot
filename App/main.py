@@ -97,7 +97,8 @@ def reply_email():
                     break
 
                 #replying the message
-                #send_email(reply_message, subject, sender)
+                reply_message = create_compose(body)
+                send_email(reply_message, subject, sender)
 
 def send_email(message, subject, reciever):
     #Creating a copy of EmailMessage
